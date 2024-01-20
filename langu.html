@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multilingual Website</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .language-selector {
+      margin-bottom: 10px;
+    }
+    h1 {
+      color: #007bff;
+    }
+    p {
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="language-selector">
+    <label for="language">Select Language:</label>
+    <select id="language" onchange="changeLanguage()">
+      <option value="en">English</option>
+      <option value="es">Español</option>
+      <option value="fr">Français</option>
+      <option value="de">Deutsch</option>
+      <option value="it">Italiano</option>
+      <option value="ja">日本語 (Japanese)</option>
+      <option value="ko">한국어 (Korean)</option>
+      <option value="zh">中文 (Chinese)</option>
+    </select>
+  </div>
+
+  <div id="content">
+    <h1 id="greeting"></h1>
+    <p id="description"></p>
+  </div>
+</div>
+
+<script>
+  function changeLanguage() {
+    var selectedLanguage = document.getElementById("language").value;
+
+    // Language-specific content
+    var content = {
+      en: {
+        greeting: "Hello!",
+        description: "Welcome to our website."
+      },
+      es: {
+        greeting: "¡Hola!",
+        description: "Bienvenido a nuestro sitio web."
+      },
+      fr: {
+        greeting: "Bonjour!",
+        description: "Bienvenue sur notre site web."
+      },
+      de: {
+        greeting: "Hallo!",
+        description: "Willkommen auf unserer Website."
+      },
+      it: {
+        greeting: "Ciao!",
+        description: "Benvenuto nel nostro sito web."
+      },
+      ja: {
+        greeting: "こんにちは！",
+        description: "当サイトへようこそ。"
+      },
+      ko: {
+        greeting: "안녕하세요!",
+        description: "우리 웹 사이트에 오신 것을 환영합니다."
+      },
+      zh: {
+        greeting: "你好！",
+        description: "欢迎来到我们的网站。"
+      }
+    };
+
+    // Update content based on selected language
+    document.getElementById("greeting").textContent = content[selectedLanguage].greeting;
+    document.getElementById("description").textContent = content[selectedLanguage].description;
+  }
+
+  // Set default language on page load
+  changeLanguage();
+</script>
+
+</body>
+</html>
